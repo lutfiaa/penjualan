@@ -1,7 +1,15 @@
 <div class="container">
+  <?php if ($this->session->flashdata('flash')) : ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Data Barang</strong> <?= $this->session->flashdata('flash'); ?>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+  <?php endif; ?>
+
   <div class="row-mt-3">
     <div class="colmd-6">
-      <a href="" class="btn btn-primary">Tambah Data Barang</a>
+      <a href="http://localhost/penjualan/Barang/tambah/" class="btn btn-primary">Tambah Data Barang</a>
     </div>
   </div>
   <table class="table">
@@ -11,6 +19,7 @@
         <th scope="col">Nama Barang</th>
         <th scope="col">Harga</th>
         <th scope="col">Stok</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -20,6 +29,9 @@
           <td><?= $brg['nama_barang']; ?></td>
           <td><?= $brg['harga']; ?></td>
           <td><?= $brg['stok']; ?></td>
+          <td> <a href="http://localhost/penjualan/Barang/hapus/<?= $brg['id_barang']; ?>" class="btn btn-danger" onclick="return confirm ('Apakah Yakin Akan Dihapus?')">Hapus</a></td>
+          <td> <a href="http://localhost/penjualan/Barang/ubah/<?= $brg['id_barang']; ?>" class="btn btn-success">Ubah</a></td>
+          <td> <a href="http://localhost/penjualan/Barang/detail/<?= $brg['id_barang']; ?>" class="btn btn-primary">Detail</a></td>
       </tr>
     <?php endforeach ?>
 
