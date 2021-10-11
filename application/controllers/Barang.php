@@ -15,6 +15,9 @@ class Barang extends CI_Controller
     {
         $data['judul'] = "Daftar Barang";
         $data['barang'] = $this->Barang_model->getAllBarang();
+        if ($this->input->post('keyword')) {
+            $data['barang'] = $this->Barang_model->CariDataBarang();
+        }
         $this->load->view('templates/header', $data);
         $this->load->view('barang/index');
         $this->load->view('templates/footer');
