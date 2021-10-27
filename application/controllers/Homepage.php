@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Homepage extends CI_Controller{
+class Homepage extends CI_Controller
+{
 
     public function __construct()
     {
@@ -11,10 +12,11 @@ class Homepage extends CI_Controller{
 
     function index()
     {
-        $data['judul']="Toko Penjual";
-        $this->load->view('templates/header',$data);
+        $data['judul'] = "Toko Penjual";
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
         $this->load->view('home/index');
         $this->load->view('templates/footer');
     }
-
 }

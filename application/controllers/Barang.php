@@ -19,6 +19,8 @@ class Barang extends CI_Controller
             $data['barang'] = $this->Barang_model->CariDataBarang();
         }
         $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
         $this->load->view('barang/index');
         $this->load->view('templates/footer');
     }
@@ -33,6 +35,8 @@ class Barang extends CI_Controller
         $this->form_validation->set_rules('stok', 'Stok', 'required|numeric');
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('templates/topbar');
             $this->load->view('barang/tambah');
             $this->load->view('templates/footer');
         } else {
@@ -53,6 +57,8 @@ class Barang extends CI_Controller
         $data['judul'] = "Detail Barang";
         $data['barang'] = $this->Barang_model->getBarangById($id);
         $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/topbar');
         $this->load->view('barang/detail', $data);
         $this->load->view('templates/footer');
     }
@@ -66,6 +72,8 @@ class Barang extends CI_Controller
         $this->form_validation->set_rules('stok', 'Stok', 'required|numeric');
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar');
+            $this->load->view('templates/topbar');
             $this->load->view('barang/ubah', $data);
             $this->load->view('templates/footer');
         } else {
