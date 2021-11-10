@@ -2,8 +2,8 @@
 <div class="container-fluid">
 
   <!-- Page Heading -->
-  <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-  <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+  <h1 class="h3 mb-3 text-gray-800">Tables</h1>
+  <p class="mb-1">DataTables is a third party plugin that is used to generate the demo table below.
     For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
   <?php if ($this->session->flashdata('flash')) : ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -19,14 +19,14 @@
     </div>
   <?php endif; ?>
   <div class="container">
-    <div class="rowmt-3">
+    <div class="rowmt3">
       <div class="colmd-6"><br>
         <a href="http://localhost/penjualan/Barang/tambah/" class="btn btn-primary">Tambah Data Barang</a>
       </div>
     </div>
     <br>
-    <div class="row mt-3">
-      <div class="col-md-5">
+    <div class="row mt3">
+      <div class="col-md-6">
         <form action="" method="post">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Cari Data Barang..." name="keyword">
@@ -47,6 +47,7 @@
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
+                <th scope="col">No</th>
                 <th scope="col">Kode Barang</th>
                 <th scope="col">Nama Barang</th>
                 <th scope="col">Harga</th>
@@ -57,6 +58,7 @@
             <tbody>
               <tr>
                 <?php foreach ($barang as $brg) : ?>
+                  <td><?= ++$start; ?></td>
                   <td><?= $brg['id_barang']; ?></td>
                   <td><?= $brg['nama_barang']; ?></td>
                   <td><?= $brg['harga']; ?></td>
@@ -70,6 +72,7 @@
             </tr>
             </tbody>
           </table>
+          <?= $this->pagination->create_links(); ?>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row mt-3">
-        <div class="col=md-6">
+        <div class="col-md-6">
             <?php if (validation_errors()) : ?>
                 <div class="alert alert-primary" role="alert">
                     <?= validation_errors(); ?>
