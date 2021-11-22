@@ -60,30 +60,12 @@ class Auth extends CI_Controller
         }
     }
 
-
     public function registration()
     {
         $data['judul'] = 'Registrasi';
-
         $this->form_validation->set_rules('name', 'Name', 'required|trim');
-        $this->form_validation->set_rules(
-            'email',
-            'Email',
-            'required|trim|valid_email|is_unique[user.email]',
-            [
-                'is_unique' => 'This email has already registered!'
-            ]
-        );
-
-        $this->form_validation->set_rules(
-            'password1',
-            'Password',
-            'required|trim|min_length[3]|matches[password2]',
-            [
-                'matches' => 'password dont match',
-                'min_length' => 'password too short!'
-            ]
-        );
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[user.email]', ['is_unique' => 'This email has alreadyregistered!']);
+        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[3]|matches[password2]', ['matches' => 'password dont match', 'min_length' => 'password too short!']);
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]');
 
         if ($this->form_validation->run() == false) {
@@ -98,17 +80,13 @@ class Auth extends CI_Controller
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role_id' => 2,
                 'is_active' => 1,
-                'date_created' => time()
-
+                'date_create' => time()
             ];
             $this->db->insert('user', $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-            Berhasil Registrasi Silahkan Login
-          </div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"> data berhasil disimpan silahkan login </div>');
             redirect('auth');
         }
     }
-
     public function logout()
     {
         $this->session->unset_userdata('email');

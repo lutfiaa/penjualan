@@ -7,7 +7,7 @@
     For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
   <?php if ($this->session->flashdata('flash')) : ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <strong>Data Barang</strong> <?= $this->session->flashdata('flash'); ?>
+      <strong>Data Barang</strong>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 
